@@ -1,11 +1,11 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { createTheme, NextUIProvider, Card, Grid, Text, Row, Input, Loading, Spacer, useInput } from '@nextui-org/react'
+import { createTheme, NextUIProvider, Container, Card, Grid, Text, Row, Input, Loading, Spacer, useInput } from '@nextui-org/react'
 import { SearchButton } from '@/components/SearchButton'
 import { SearchIcon } from '@/components/SearchIcon'
 //import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+//import styles from '@/styles/Home.module.css'
 
 const theme = createTheme({
   type: 'dark',
@@ -34,17 +34,17 @@ export default function Page() {
   }
 
   return (
-    <div className={styles.container}>
-      <NextUIProvider theme={theme}>
+    <NextUIProvider theme={theme}>
+      <Container css={{ maxWidth: '1400px' }}>
         <Row justify="center" align="center">
-          <Spacer y={5} />
+          <Spacer y={7} />
           <Input 
             {...bindings}
             rounded 
             bordered 
             size="lg" 
             labelPlaceholder="Поиск"
-            initialValue="zara" 
+            initialValue={value} 
             color="primary" 
             type="search"
             contentRightStyling={false}
@@ -65,7 +65,11 @@ export default function Page() {
             const id = p.id.toString()
             const vol = id.slice(0, -5)
             let basket = '10'
-            if (vol < 1000)
+            if (vol < 420)
+              basket = '03'
+            else if (vol < 650)
+              basket = '04'
+            else if (vol < 1000)
               basket = '05'
             else if (vol < 1100)
               basket = '06'
@@ -90,7 +94,10 @@ export default function Page() {
                   </Card.Body>
                   <Card.Footer css={{ justifyItems: "flex-start" }}>
                     <Row wrap="wrap" justify="space-between" align="center">
-                      <Text b>{p.name + ' - ' + p.id}</Text>
+                      <Text b>{p.name}</Text>
+                      <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
+                        {vol}
+                      </Text>
                       <Text css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
                         {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
                       </Text>
@@ -104,8 +111,8 @@ export default function Page() {
             )
           })}
         </Grid.Container>
-      </NextUIProvider>
-    </div>
+      </Container>
+    </NextUIProvider>
   )
 }
 
