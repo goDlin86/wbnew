@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import { createTheme, NextUIProvider, Container, Card, Grid, Text, Row, Input, Loading, Spacer, useInput } from '@nextui-org/react'
 import { SearchButton } from '@/components/SearchButton'
 import { SearchIcon } from '@/components/SearchIcon'
+import { Tag } from '@/components/Tag'
 //import { Inter } from 'next/font/google'
 //import styles from '@/styles/Home.module.css'
 
@@ -20,11 +21,12 @@ const theme = createTheme({
 
 export default function Page() {
   const [products, setProducts] = useState([])
-  const { value, reset, bindings } = useInput('zara')
+  const { value, setValue, reset, bindings } = useInput('zara')
   
   useEffect(() => {
+    setProducts([])
     fetchData(value)
-  }, [])
+  }, [value])
 
   const fetchData = async (query) => {
     const res = await fetch(`https://wbnew.vercel.app/api/hello?q=${query}`)
@@ -47,17 +49,17 @@ export default function Page() {
             initialValue={value} 
             color="primary" 
             type="search"
-            contentRightStyling={false}
-            contentRight={
-              <SearchButton>
-                <SearchIcon />
-              </SearchButton>
-            }
-            onContentClick={() => {
-              setProducts([])
-              fetchData(value)
-            }}
+            // contentRightStyling={false}
+            // contentRight={
+            //   <SearchButton>
+            //     <SearchIcon />
+            //   </SearchButton>
+            // }
+            // onContentClick={handleClick}
           />
+          <Tag onClick={() => { setValue('zara') }}>zara</Tag>
+          <Tag onClick={() => { setValue('pull&bear') }}>pull&bear</Tag>
+          <Tag onClick={() => { setValue('bershka') }}>bershka</Tag>
         </Row>
         {products.length === 0 && <Row justify="center" align="center"><Loading /></Row>}
         <Grid.Container gap={2} justify="center">
@@ -67,7 +69,7 @@ export default function Page() {
             let basket = '10'
             if (vol < 420)
               basket = '03'
-            else if (vol < 650)
+            else if (vol < 670)
               basket = '04'
             else if (vol < 1000)
               basket = '05'
