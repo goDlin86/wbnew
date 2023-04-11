@@ -87,7 +87,7 @@ export default function Page() {
                 <Card isPressable onPress={() => window.open(`https://www.wildberries.ru/catalog/${id}/detail.aspx`, '_blank')}>
                   <Card.Body css={{ p: 0 }}>
                     <Card.Image
-                      src={`https://basket-${basket}.wb.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
+                      src={`https://basket-${basket}.wb.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c250x300/1.jpg`}
                       objectFit="cover"
                       width="100%"
                       height={300}
