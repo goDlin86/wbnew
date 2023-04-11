@@ -1,11 +1,10 @@
-
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 async function fetchData(q) {
-  const res = await fetch(`https://wbnew.vercel.app/api/hello?q=${q}`)
+  const res = await fetch(`https://wbnew.vercel.app/api/hello?q=${q}`, { next: { revalidate: 60 } })
   const data = await res.json()
   return data
 }
@@ -49,7 +48,7 @@ export default async function Page({ params }) {
                 alt={p.name}
               />
 
-              <div b>{p.name}</div>
+              <div>{p.name}</div>
               <div css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
                 {vol}
               </div>
