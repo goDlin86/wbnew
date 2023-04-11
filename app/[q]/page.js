@@ -49,12 +49,9 @@ export default async function Page({ params }) {
               />
 
               <div>{p.name}</div>
-              <div css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                {vol}
-              </div>
-              <div css={{ color: "$accents7", fontWeight: "$semibold", fontSize: "$sm" }}>
-                {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
-              </div>
+              <div>{vol}</div>
+              <div>{p.sizes.map(s => s.origName).join(' ')}</div>
+              <div>{new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}</div>
                 {/* css={{
                     textGradient: "45deg, $blue600 -20%, $pink600 50%",
                   }}*/}
