@@ -1,8 +1,4 @@
-import { Search } from '@/components/Search'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-
-const inter = Inter({ subsets: ['latin'] })
 
 async function fetchData(q) {
   const res = await fetch(`https://wbnew.vercel.app/api/hello?q=${q}`, { next: { revalidate: 60 } })
@@ -14,58 +10,49 @@ export default async function Page({ params }) {
   const data = await fetchData(params.q)
 
   return (
-    <div className={`${styles.container} ${inter.className}`}>
-      <div className={styles.tags}>
-        <Search q={params.q} />
-        <a className={styles.tag} href='/zara'>zara</a>
-        <a className={styles.tag} href='/pull&bear'>pull&bear</a>
-        <a className={styles.tag} href='/bershka'>bershka</a>
-      </div>
-      
-      <div className={styles.cards}>
-        {data.data.products.map((p, i) => {
-          const id = p.id.toString()
-          const vol = id.slice(0, -5)
-          let basket = '10'
-          if (vol < 420)
-            basket = '03'
-          else if (vol < 670)
-            basket = '04'
-          else if (vol < 1000)
-            basket = '05'
-          else if (vol < 1100)
-            basket = '06'
-          else if (vol < 1140)
-            basket = '07'
-          else if (vol < 1170)
-            basket = '08'
-          else if (vol < 1315)
-            basket = '09'
+    <div className={styles.cards}>
+      {data.data.products.map((p, i) => {
+        const id = p.id.toString()
+        const vol = id.slice(0, -5)
+        let basket = '10'
+        if (vol < 420)
+          basket = '03'
+        else if (vol < 670)
+          basket = '04'
+        else if (vol < 1000)
+          basket = '05'
+        else if (vol < 1100)
+          basket = '06'
+        else if (vol < 1140)
+          basket = '07'
+        else if (vol < 1170)
+          basket = '08'
+        else if (vol < 1315)
+          basket = '09'
 
-          return (
-            <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank' key={i}>
-              <img
-                className={styles.cardimg}
-                src={`https://basket-${basket}.wb.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
-                alt={p.name}
-              />
+        return (
+          <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank' key={i}>
+            <img
+              className={styles.cardimg}
+              src={`https://basket-${basket}.wb.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
+              alt={p.name}
+            />
 
-              <div className={styles.carddesc}>
-                <div>{p.name}</div>
-                <div style={{ color: '#787f85' }}>{vol}</div>
-                <div>{p.sizes.map(s => s.origName).join(' ')}</div>
-                <div style={{ 
-                  backgroundImage: 'linear-gradient(45deg, #cb11ab -20%, #481173 50%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent' 
-                }}>
-                  {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
-                </div>
+            <div className={styles.carddesc}>
+              <div>{p.name}</div>
+              <div style={{ color: '#787f85' }}>{vol}</div>
+              <div>{p.sizes.map(s => s.origName).join(' ')}</div>
+              <div style={{ 
+                backgroundImage: 'linear-gradient(45deg, #cb11ab -20%, #481173 50%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent' 
+              }}>
+                {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
               </div>
-            </a>
-          )
-        })}
-      </div>
+            </div>
+          </a>
+        )
+      })}
     </div>
   )
 }

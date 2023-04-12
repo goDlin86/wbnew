@@ -1,11 +1,12 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { useRouter, usePathname } from 'next/navigation'
 import { useState } from 'react'
 
-export const Search = ({ q }) => {
+export const Search = () => {
   const router = useRouter()
-  const [query, setQuery] = useState(q)
+  const pathname = usePathname()
+  const [query, setQuery] = useState(pathname.substring(1))
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
