@@ -105,3 +105,14 @@ a {
     color-scheme: dark;
   }
 }
+
+input[type=text] {
+  padding: 7px 12px;
+  border-radius: 15px;
+  border: 2px solid #16181a;
+  outline: none;
+  transition: border 0.3s ease;
+}
+input[type=text]:focus {
+  border: 2px solid #cb11ab;
+}

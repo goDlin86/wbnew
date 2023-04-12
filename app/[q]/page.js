@@ -1,3 +1,4 @@
+import { Search } from '@/components/Search'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 
@@ -14,6 +15,7 @@ export default async function Page({ params }) {
 
   return (
     <div className={`${styles.container} ${inter.className}`}>
+      <Search q={params.q} />
       <div className={styles.tags}>
         <a className={styles.tag} href='/zara'>zara</a>
         <a className={styles.tag} href='/pull&bear'>pull&bear</a>
@@ -48,13 +50,18 @@ export default async function Page({ params }) {
                 alt={p.name}
               />
 
-              <div>{p.name}</div>
-              <div>{vol}</div>
-              <div>{p.sizes.map(s => s.origName).join(' ')}</div>
-              <div>{new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}</div>
-                {/* css={{
-                    textGradient: "45deg, $blue600 -20%, $pink600 50%",
-                  }}*/}
+              <div className={styles.carddesc}>
+                <div>{p.name}</div>
+                <div style={{ color: '#787f85' }}>{vol}</div>
+                <div>{p.sizes.map(s => s.origName).join(' ')}</div>
+                <div style={{ 
+                  backgroundImage: 'linear-gradient(45deg, #cb11ab -20%, #481173 50%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent' 
+                }}>
+                  {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
+                </div>
+              </div>
             </a>
           )
         })}

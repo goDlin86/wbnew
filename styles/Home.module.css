@@ -27,13 +27,21 @@
   overflow: hidden;
 }
 .cardimg {
+  display: block;
   object-fit: cover;
   width: 100%;
   height: 300px;
+}
+.carddesc {
+  padding: 10px;
+  background-color: #16181a;
 }
 
 @media (max-width: 700px) {
   .cards {
     grid-template-columns: 1fr 1fr;
+  }
+  .cardimg {
+    height: 250px;
   }
 }
