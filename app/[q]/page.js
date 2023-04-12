@@ -15,8 +15,8 @@ export default async function Page({ params }) {
 
   return (
     <div className={`${styles.container} ${inter.className}`}>
-      <Search q={params.q} />
       <div className={styles.tags}>
+        <Search q={params.q} />
         <a className={styles.tag} href='/zara'>zara</a>
         <a className={styles.tag} href='/pull&bear'>pull&bear</a>
         <a className={styles.tag} href='/bershka'>bershka</a>

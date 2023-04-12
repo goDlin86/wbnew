@@ -108,10 +108,12 @@ a {
 
 input[type=text] {
   padding: 7px 12px;
-  border-radius: 15px;
+  border-radius: 20px;
   border: 2px solid #16181a;
   outline: none;
   transition: border 0.3s ease;
+  font-size: 16px;
+  margin: 10px 10px 10px 0;
 }
 input[type=text]:focus {
   border: 2px solid #cb11ab;
