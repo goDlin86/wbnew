@@ -43,9 +43,10 @@ export default async function Page({ params }) {
               <div style={{ color: '#787f85' }}>{vol}</div>
               <div>{p.sizes.map(s => s.origName).join(' ')}</div>
               <div style={{ 
-                backgroundImage: 'linear-gradient(45deg, #cb11ab -20%, #481173 50%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent' 
+                color: '#cb11ab',
+                // backgroundImage: 'linear-gradient(45deg, #cb11ab -20%, #481173 50%)',
+                // WebkitBackgroundClip: 'text',
+                // WebkitTextFillColor: 'transparent' 
               }}>
                 {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
               </div>
