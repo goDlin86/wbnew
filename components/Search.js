@@ -6,7 +6,7 @@ import { useState } from 'react'
 export const Search = () => {
   const router = useRouter()
   const pathname = usePathname()
-  const [query, setQuery] = useState(pathname.substring(1))
+  const [query, setQuery] = useState(decodeURI(pathname.substring(1)))
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
