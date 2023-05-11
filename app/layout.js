@@ -4,9 +4,10 @@ export default function Layout({ children }) {
   return (
     <html lang="en">
     <head>
-       <title>WB new</title>
+      <link rel="icon" href="/favicon.ico" sizes="any" />
+      <title>WB new</title>
     </head>
-     <body>
+      <body>
         {children}
       </body>
     </html>
