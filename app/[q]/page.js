@@ -14,7 +14,7 @@ export default async function Page({ params }) {
       {data.data.products.map((p, i) => {
         const id = p.id.toString()
         const vol = id.slice(0, -5)
-        let basket = '10'
+        let basket = '11'
         if (vol < 420)
           basket = '03'
         else if (vol < 670)
@@ -29,6 +29,8 @@ export default async function Page({ params }) {
           basket = '08'
         else if (vol < 1315)
           basket = '09'
+        else if (vol < 1600)
+          basket = '10'
 
         return (
           <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank' key={i}>
