@@ -29,7 +29,7 @@ export default async function Page({ params }) {
           basket = '08'
         else if (vol < 1315)
           basket = '09'
-        else if (vol < 1605)
+        else if (vol < 1602)
           basket = '10'
 
         return (
