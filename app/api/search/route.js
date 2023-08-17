@@ -8,9 +8,8 @@ export async function GET(request) {
   const r = await fetch(url)
   try {
     const data = await r.json()
+    return NextResponse.json(data)
   } catch (e) {
-    return console.error(e); // error in the above string (in this case, yes)!
+    return NextResponse.json({ error: e })
   }
-
-  return NextResponse.json(data)
 }
