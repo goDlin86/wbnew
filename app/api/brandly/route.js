@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
 
 export async function GET(request) {
-  const { searchParams } = new URL(request.url)
-  const q = searchParams.get('q')
+  // const { searchParams } = new URL(request.url)
+  // const q = searchParams.get('q')
 
   const url = 'https://api.brandly.ru/api/ext/kt-api-extensions/catalog/product/loadCategoryProducts'
-  const data = {
+  const body = {
     "size": 40,
     "query": {
       "pol": "muzhskoy"
@@ -32,7 +32,7 @@ export async function GET(request) {
   }
   const r = await fetch(url, {
     method: 'POST',
-    body: JSON.stringify(data)
+    body: JSON.stringify(body)
   })
   try {
     const data = await r.json()
