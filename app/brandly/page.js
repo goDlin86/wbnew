@@ -7,12 +7,12 @@ async function fetchData() {
 }
 
 export default async function Page() {
-  const data = await fetchData()
+  const data = {} // await fetchData()
   console.log(data)
 
   return (
     <div className={styles.cards}>
-      {data.result.productsResult.items.map((p, i) => {
+      {/* {data.result.productsResult.items.map((p, i) => {
         
         return (
           <a className={styles.card} href={`https://www.brandly.ru/p/${p.slug}`} target='_blank' key={i}>
@@ -32,7 +32,7 @@ export default async function Page() {
             </div>
           </a>
         )
-      })}
+      })} */}
     </div>
   )
 }
