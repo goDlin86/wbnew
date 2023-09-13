@@ -32,6 +32,9 @@ export async function GET(request) {
   }
   const r = await fetch(url, {
     method: 'POST',
+    headers: {
+      'Content-Type': 'application/json; charset=utf-8'
+    },
     body: JSON.stringify(body)
   })
   try {
