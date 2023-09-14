@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 
-export const wbProduct = ({ p, i }) => {
+export const wbProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
   let basket = '12'

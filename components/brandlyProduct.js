@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 
-export const brandlyProduct = ({ p, i }) => {
+export const brandlyProduct = ({ p }) => {
   return (
     <a className={styles.card} href={`https://www.brandly.ru/p/${p.slug}`} target='_blank' key={i}>
       <img

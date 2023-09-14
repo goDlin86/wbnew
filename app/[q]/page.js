@@ -16,14 +16,14 @@ export default async function Page({ params }) {
   return (
     <div className={styles.cards}>
       {market === 'wb' ? 
-        data.data.products.map((p, i) => <wbProduct p={p} i={i} />) :
-        data.result.productsResult.items.map((p, i) => <brandlyProduct p={p} i={i} />)
+        data.data.products.map((p, i) => <wbProduct p={p} key={i} />) :
+        data.result.productsResult.items.map((p, i) => <brandlyProduct p={p} key={i} />)
       }
     </div>
   )
 }
 
-// product
+// product wb
 // {
 //   "time1": 3,
 //   "time2": 33,
