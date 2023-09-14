@@ -12,13 +12,12 @@ export default async function Page({ params }) {
   const { q } = params
   const market = q.split('-')[0]
   const data = await fetchData(q)
+  console.log(data)
 
   return (
     <div className={styles.cards}>
-      {market === 'wb' ? 
-        data.data.products.map((p, i) => <wbProduct p={p} key={i} />) :
-        data.result.productsResult.items.map((p, i) => <brandlyProduct p={p} key={i} />)
-      }
+      {market === 'wb' && data.data.products.map((p, i) => <wbProduct p={p} key={i} />)}
+      {market === 'brandly' && data.result.productsResult.items.map((p, i) => <brandlyProduct p={p} key={i} />)}
     </div>
   )
 }

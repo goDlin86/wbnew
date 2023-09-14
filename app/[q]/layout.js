@@ -11,7 +11,11 @@ export default function Layout({ children }) {
     <div className={`${styles.container} ${inter.className}`}>
       <div className={styles.tags}>
         <Search />
-        {tags.map((tag, i) => <a className={styles.tag} href={'/' + tag} key={i}>{tag}</a>)}
+        {tags.map((tag, i) => 
+          <a className={`${styles.tag} ${tag.split('-')[0] === 'wb' && styles.wb} ${tag.split('-')[0] === 'brandly' && styles.brandly}`} href={'/' + tag} key={i}>
+            {tag.split('-')[1]}
+          </a>
+        )}
       </div>
 
       {children}
