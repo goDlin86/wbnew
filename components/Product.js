@@ -1,6 +1,6 @@
 import styles from '@/styles/Home.module.css'
 
-export const wbProduct = ({ p }) => {
+export const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
   let basket = '12'
@@ -24,7 +24,7 @@ export const wbProduct = ({ p }) => {
     basket = '11'
 
   return (
-    <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank' key={i}>
+    <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank'>
       <img
         className={styles.cardimg}
         src={`https://basket-${basket}.wb.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
@@ -42,6 +42,27 @@ export const wbProduct = ({ p }) => {
           // WebkitTextFillColor: 'transparent' 
         }}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.salePriceU/100)}
+        </div>
+      </div>
+    </a>
+  )
+}
+
+export const BrandlyProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://www.brandly.ru/p/${p.slug}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={p.thumbnail.webp}
+        alt={p.name}
+      />
+
+      <div className={styles.carddesc}>
+        <div>{p.name}</div>
+        <div style={{ 
+          color: '#DBFF00',
+        }}>
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.prices.base)}
         </div>
       </div>
     </a>
