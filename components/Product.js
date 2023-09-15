@@ -73,16 +73,14 @@ export const BrdProduct = ({ p }) => {
       <img
         className={styles.cardimg}
         src={p.products_image}
-        alt={p.jsonGaInfo.name}
+        alt={p.products_name}
       />
 
       <div className={styles.carddesc}>
-        <div>{p.jsonGaInfo.name}</div>
+        <div>{p.products_name}</div>
         <div>{p.products_season}</div>
         <div>{p.showSizes.map(s => s.text).join(' ')}</div>
-        <div>
-          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.currentPrice)}
-        </div>
+        <div>{p.current_price_text}</div>
       </div>
     </a>
   )
