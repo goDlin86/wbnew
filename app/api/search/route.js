@@ -36,7 +36,11 @@ export async function GET(request) {
     }
   }
 
-  const r = market === 'wb' ? 
+  if (market === 'brd') {
+    url = 'https://www.brd.ru/cat/novaya-kollektsiya?fgender=2&ajax=3'
+  }
+
+  const r = market === 'wb' || market === 'brd' ? 
     await fetch(url) :
     await fetch(url, {
       method: 'POST',

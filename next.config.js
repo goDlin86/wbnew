@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/zara',
+        destination: '/wb-zara',
         permanent: true,
       },
     ]

@@ -59,10 +59,29 @@ export const BrandlyProduct = ({ p }) => {
 
       <div className={styles.carddesc}>
         <div>{p.name}</div>
-        <div style={{ 
-          color: '#DBFF00',
-        }}>
+        <div style={{ color: '#DBFF00' }}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.prices.base)}
+        </div>
+      </div>
+    </a>
+  )
+}
+
+export const BrdProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://www.brd.ru/product/${p.uriName}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={p.products_image}
+        alt={p.jsonGaInfo.name}
+      />
+
+      <div className={styles.carddesc}>
+        <div>{p.jsonGaInfo.name}</div>
+        <div>{p.products_season}</div>
+        <div>{p.showSizes.map(s => s.text).join(' ')}</div>
+        <div style={{ color: '#1c1c1c' }}>
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.currentPrice)}
         </div>
       </div>
     </a>
