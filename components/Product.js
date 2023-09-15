@@ -80,7 +80,7 @@ export const BrdProduct = ({ p }) => {
         <div>{p.jsonGaInfo.name}</div>
         <div>{p.products_season}</div>
         <div>{p.showSizes.map(s => s.text).join(' ')}</div>
-        <div style={{ color: '#1c1c1c' }}>
+        <div>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.currentPrice)}
         </div>
       </div>
