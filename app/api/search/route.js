@@ -40,6 +40,19 @@ export async function GET(request) {
     url = 'https://www.brd.ru/cat/novaya-kollektsiya?fgender=2&ajax=3'
   }
 
+  if (market === 'oskelly') {
+    url = 'https://oskelly.ru/api/v2/products/filter/items'
+    body = {
+      "filters": {
+        "oskellyChoice": true
+      },
+      "presets": {},
+      "baseCategory": 105,
+      "page": 1,
+      "pageLength": 24
+    }
+  }
+
   const r = market === 'wb' || market === 'brd' ? 
     await fetch(url) :
     await fetch(url, {

@@ -85,3 +85,22 @@ export const BrdProduct = ({ p }) => {
     </a>
   )
 }
+
+export const OskellyProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://oskelly.ru/${p.url}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={p.images[0].path}
+        alt={p.name}
+      />
+
+      <div className={styles.carddesc}>
+        <div>{p.brand.name + ' ' + p.name}</div>
+        <div>{p.conditionName}</div>
+        <div>{p.sizes.map(s => s.productSizeValu).join(' ')}</div>
+        <div>{p.price}</div>
+      </div>
+    </a>
+  )
+}

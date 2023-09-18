@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const tags = ['wb-zara', 'wb-pull&bear', 'wb-bershka', 'wb-твое', 'brandly-asos', 'brandly-topman', 'brd-new']
+const tags = ['wb-zara', 'wb-pull&bear', 'wb-bershka', 'wb-твое', 'brandly-asos', 'brandly-topman', 'brd-new', 'oskelly-choice']
 
 export default function Layout({ children }) {
   return (
@@ -13,7 +13,7 @@ export default function Layout({ children }) {
         <Search />
         {tags.map((tag, i) => 
           <a 
-            className={`${styles.tag} ${tag.split('-')[0] === 'wb' && styles.wb} ${tag.split('-')[0] === 'brandly' && styles.brandly} ${tag.split('-')[0] === 'brd' && styles.brd}`} 
+            className={`${styles.tag} ${tag.split('-')[0] === 'wb' && styles.wb} ${tag.split('-')[0] === 'brandly' && styles.brandly} ${tag.split('-')[0] === 'brd' || tag.split('-')[0] === 'oskelly' && styles.brd}`} 
             href={'/' + tag} 
             key={i}
           >
