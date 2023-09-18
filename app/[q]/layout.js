@@ -13,7 +13,7 @@ export default function Layout({ children }) {
         <Search />
         {tags.map((tag, i) => 
           <a 
-            className={`${styles.tag} ${tag.split('-')[0] === 'wb' && styles.wb} ${tag.split('-')[0] === 'brandly' && styles.brandly} ${tag.split('-')[0] === 'brd' || tag.split('-')[0] === 'oskelly' && styles.brd}`} 
+            className={`${styles.tag} ${tag.split('-')[0] === 'wb' && styles.wb} ${tag.split('-')[0] === 'brandly' && styles.brandly} ${(tag.split('-')[0] === 'brd' || tag.split('-')[0] === 'oskelly') && styles.brd}`} 
             href={'/' + tag} 
             key={i}
           >

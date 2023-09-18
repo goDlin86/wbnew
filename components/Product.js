@@ -88,7 +88,7 @@ export const BrdProduct = ({ p }) => {
 
 export const OskellyProduct = ({ p }) => {
   return (
-    <a className={styles.card} href={`https://oskelly.ru/${p.url}`} target='_blank'>
+    <a className={styles.card} href={`https://oskelly.ru${p.url}`} target='_blank'>
       <img
         className={styles.cardimg}
         src={p.images[0].path}
@@ -98,8 +98,10 @@ export const OskellyProduct = ({ p }) => {
       <div className={styles.carddesc}>
         <div>{p.brand.name + ' ' + p.name}</div>
         <div>{p.conditionName}</div>
-        <div>{p.sizes.map(s => s.productSizeValu).join(' ')}</div>
-        <div>{p.price}</div>
+        <div>{p.sizes.map(s => s.productSizeValue).join(' ')}</div>
+        <div>
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
+        </div>
       </div>
     </a>
   )

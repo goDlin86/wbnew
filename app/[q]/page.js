@@ -11,7 +11,6 @@ export default async function Page({ params }) {
   const { q } = params
   const market = q.split('-')[0]
   const data = await fetchData(q)
-  console.log(data)
 
   return (
     <div className={styles.cards}>
