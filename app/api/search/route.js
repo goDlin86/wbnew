@@ -12,6 +12,14 @@ export async function GET(request) {
 
   if (market === 'brandly') {
     url = 'https://api.brandly.ru/api/ext/kt-api-extensions/catalog/product/loadCategoryProducts'
+    //asos
+    let id = 20027
+    if (brand === 'zara') {
+      id = 17976
+    }
+    if (brand === 'topman') {
+      id = 19197
+    }
     body = {
       "size": 40,
       "query": {
@@ -30,7 +38,7 @@ export async function GET(request) {
       "productsFor": "catalog",
       "mainQuery": {
         "term": {
-          "category_ids": brand === 'asos' ? 20027 : 19197
+          "category_ids": id
         }
       }
     }
