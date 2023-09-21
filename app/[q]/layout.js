@@ -4,7 +4,7 @@ import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const tags = ['wb-zara', 'wb-pull&bear', 'wb-bershka', 'wb-твое', 'brandly-asos', 'brandly-zara', 'brandly-topman', 'brd-new', 'oskelly-choice']
+const tags = ['wb-zara', 'wb-pull&bear', 'wb-bershka', 'wb-твое', 'brandly-asos', 'brandly-zara', 'brandly-topman', 'brandly-weekday', 'brd-new', 'oskelly-choice']
 
 export default function Layout({ children }) {
   return (
