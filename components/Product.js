@@ -33,8 +33,10 @@ export const WBProduct = ({ p }) => {
 
       <div className={styles.carddesc}>
         {/* <div>{p.name}</div>
-        <div style={{ color: '#787f85' }}>{vol}</div>
-        <div>{p.sizes.map(s => s.origName).join(' ')}</div> */}
+        <div style={{ color: '#787f85' }}>{vol}</div> */}
+        <div className={`${styles.cardprice} ${styles.wb}`}>
+          {p.sizes.map(s => s.origName).join(' ')}
+        </div>
         <div className={styles.cardprice} style={{ 
           backgroundColor: '#cb11ab',
           // backgroundImage: 'linear-gradient(45deg, #cb11ab -20%, #481173 50%)',
@@ -78,9 +80,13 @@ export const BrdProduct = ({ p }) => {
 
       <div className={styles.carddesc}>
         {/* <div>{p.products_name}</div>
-        <div>{p.products_season}</div>
-        <div>{p.showSizes.map(s => s.text).join(' ')}</div> */}
-        <div className={`${styles.cardprice} ${styles.brd}`}>{p.current_price_text}</div>
+        <div>{p.products_season}</div> */}
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {p.showSizes.map(s => s.text).join(' ')}
+        </div>
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {p.current_price_text}
+        </div>
       </div>
     </a>
   )
@@ -97,8 +103,10 @@ export const OskellyProduct = ({ p }) => {
 
       <div className={styles.carddesc}>
         {/* <div>{p.brand.name + ' ' + p.name}</div>
-        <div>{p.conditionName}</div>
-        <div>{p.sizes.map(s => s.productSizeValue).join(' ')}</div> */}
+        <div>{p.conditionName}</div> */}
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {p.sizes.map(s => s.productSizeValue).join(' ')}
+        </div>
         <div className={`${styles.cardprice} ${styles.brd}`}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
         </div>

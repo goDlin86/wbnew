@@ -12,8 +12,8 @@ export async function GET(request) {
 
   if (market === 'brandly') {
     url = 'https://api.brandly.ru/api/ext/kt-api-extensions/catalog/product/loadCategoryProducts'
-    //asos
-    let id = 20027
+    //asos-design
+    let id = 18598
     if (brand === 'zara') {
       id = 17976
     }
