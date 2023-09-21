@@ -9,7 +9,7 @@
 .tag {
   display: inline-block;
   padding: 7px 12px;
-  margin-right: 10px;
+  margin: 10px 10px 10px 0;
   border-radius: 20px;
   transition: opacity 0.3s ease;
 }
@@ -20,7 +20,7 @@
   background-color: #cb11ab;
 }
 .brandly {
-  color: #1D1D1B;
+  color: #1d1d1c;
   background-color: #DBFF00;
 }
 .brd {
@@ -32,6 +32,7 @@
   gap: 20px;
 }
 .card {
+  position: relative;
   border-radius: 10px;
   overflow: hidden;
   background-color: #16181a;
@@ -43,7 +44,18 @@
   height: 300px;
 }
 .carddesc {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-align: right;
+
   padding: 10px;
+}
+.cardprice {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-weight: bold;
 }
 
 @media (max-width: 700px) {
