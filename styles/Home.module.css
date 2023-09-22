@@ -61,6 +61,7 @@
 .cardsize {
   opacity: 0.4;
   transition: opacity .3s ease-in;
+  font-size: 12px;
 }
 .cardsize:hover {
   opacity: 1;
