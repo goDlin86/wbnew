@@ -58,6 +58,13 @@
   font-weight: bold;
   margin: 5px 0 0 5px;
 }
+.cardsize {
+  opacity: 0.4;
+  transition: opacity .3s ease-in;
+}
+.cardsize:hover {
+  opacity: 1;
+}
 
 @media (max-width: 700px) {
   .cards {

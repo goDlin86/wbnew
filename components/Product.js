@@ -34,7 +34,7 @@ export const WBProduct = ({ p }) => {
       <div className={styles.carddesc}>
         {/* <div>{p.name}</div>
         <div style={{ color: '#787f85' }}>{vol}</div> */}
-        <div className={`${styles.cardprice} ${styles.wb}`}>
+        <div className={`${styles.cardprice} ${styles.wb} ${styles.cardsize}`}>
           {p.sizes.map(s => s.origName).join(' ')}
         </div>
         <div className={styles.cardprice} style={{ 
@@ -81,7 +81,7 @@ export const BrdProduct = ({ p }) => {
       <div className={styles.carddesc}>
         {/* <div>{p.products_name}</div>
         <div>{p.products_season}</div> */}
-        <div className={`${styles.cardprice} ${styles.brd}`}>
+        <div className={`${styles.cardprice} ${styles.brd} ${styles.cardsize}`}>
           {p.showSizes.map(s => s.text).join(' ')}
         </div>
         <div className={`${styles.cardprice} ${styles.brd}`}>
@@ -104,7 +104,7 @@ export const OskellyProduct = ({ p }) => {
       <div className={styles.carddesc}>
         {/* <div>{p.brand.name + ' ' + p.name}</div>
         <div>{p.conditionName}</div> */}
-        <div className={`${styles.cardprice} ${styles.brd}`}>
+        <div className={`${styles.cardprice} ${styles.brd} ${styles.cardsize}`}>
           {p.sizes.map(s => s.productSizeValue).join(' ')}
         </div>
         <div className={`${styles.cardprice} ${styles.brd}`}>
