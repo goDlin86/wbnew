@@ -2,7 +2,7 @@ import { WBProduct, BrandlyProduct, BrdProduct, OskellyProduct } from '@/compone
 import styles from '@/styles/Home.module.css'
 
 async function fetchData(q) {
-  const res = await fetch(`https://wbnew.vercel.app/api/search?q=${q}`, { next: { revalidate: 60 } })
+  const res = await fetch(`https://wbnew.vercel.app/api/search?q=${q}`, { cache: 'no-store' })
   const data = await res.json()
   return data
 }
