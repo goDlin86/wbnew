@@ -55,7 +55,7 @@ export const BrandlyProduct = ({ p }) => {
     <a className={styles.card} href={`https://www.brandly.ru/p/${p.slug}`} target='_blank'>
       <img
         className={styles.cardimg}
-        src={p.thumbnail.webp}
+        src={p.thumbnail && p.thumbnail.webp}
         alt={p.name}
       />
 
