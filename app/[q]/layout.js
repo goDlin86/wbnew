@@ -6,14 +6,14 @@ const inter = Inter({ subsets: ['latin'] })
 
 const tags = ['wb-zara', 'wb-pull&bear', 'wb-bershka', 'wb-твое', 'brandly-asos', 'brandly-zara', 'brandly-topman', 'brandly-weekday', 'brd-new', 'oskelly-choice']
 
-export default function Layout({ children }) {
+export default function Layout({ children, params }) {
   return (
     <div className={`${styles.container} ${inter.className}`}>
       <div className={styles.tags}>
         <Search />
         {tags.map((tag, i) => 
           <a 
-            className={`${styles.tag} ${tag.split('-')[0] === 'wb' && styles.wb} ${tag.split('-')[0] === 'brandly' && styles.brandly} ${(tag.split('-')[0] === 'brd' || tag.split('-')[0] === 'oskelly') && styles.brd}`} 
+            className={`${styles.tag} ${styles[tag.split('-')[0]]} ${tag === decodeURI(params.q) && styles.active}`} 
             href={'/' + tag} 
             key={i}
           >
