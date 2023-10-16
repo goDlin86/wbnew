@@ -1,6 +1,25 @@
 import styles from '@/styles/Home.module.css'
 
-export const WBProduct = ({ p }) => {
+export const Product = ({ data, market }) => {
+  switch (market) {
+    case 'wb':
+      return data.data.products.map((p, i) => <WBProduct p={p} key={i} />)
+  
+    case 'brandly':
+      return data.result.productsResult.items.map((p, i) => <BrandlyProduct p={p} key={i} />)
+
+    case 'brd':
+      return data.productsList.map((p, i) => <BrdProduct p={p} key={i} />)
+
+    case 'oskelly':
+      return data.data.items.map((p, i) => <OskellyProduct p={p} key={i} />)
+    
+    default:
+      return 'Unknown market'
+  }
+}
+
+const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
   let basket = '12'
@@ -50,7 +69,7 @@ export const WBProduct = ({ p }) => {
   )
 }
 
-export const BrandlyProduct = ({ p }) => {
+const BrandlyProduct = ({ p }) => {
   return (
     <a className={styles.card} href={`https://www.brandly.ru/p/${p.slug}`} target='_blank'>
       <img
@@ -69,7 +88,7 @@ export const BrandlyProduct = ({ p }) => {
   )
 }
 
-export const BrdProduct = ({ p }) => {
+const BrdProduct = ({ p }) => {
   return (
     <a className={styles.card} href={`https://www.brd.ru/product/${p.uriName}`} target='_blank'>
       <img
@@ -92,7 +111,7 @@ export const BrdProduct = ({ p }) => {
   )
 }
 
-export const OskellyProduct = ({ p }) => {
+const OskellyProduct = ({ p }) => {
   return (
     <a className={styles.card} href={`https://oskelly.ru${p.url}`} target='_blank'>
       <img
