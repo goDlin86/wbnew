@@ -26,15 +26,13 @@ export async function GET(request) {
     body = {
       "size": 40,
       "query": {
-        "pol": "muzhskoy"
+        "gender_clothing_pol": "muzhskoy"
       },
       "from": 0,
       "includeFields": null,
       "excludeFields": null,
       "sort": [
-        {
-          "availability": "desc"
-        }
+        { "availability": "desc" }
       ],
       "searchRules": null,
       "slug": "/brands/" + brand,
