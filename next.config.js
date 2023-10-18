@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/wb-zara',
+        destination: '/brandly-asos',
         permanent: true,
       },
     ]

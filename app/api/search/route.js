@@ -26,7 +26,7 @@ export async function GET(request) {
     body = {
       "size": 40,
       "query": {
-        "gender_clothing_pol": "muzhskoy"
+        "pol": "muzhskoy"
       },
       "from": 0,
       "includeFields": null,
