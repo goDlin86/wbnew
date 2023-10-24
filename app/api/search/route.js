@@ -20,6 +20,9 @@ export async function GET(request) {
     if (brand === 'topman') {
       id = 19197
     }
+    if (brand === 'collusion') {
+      id = 19788
+    }
     if (brand === 'weekday') {
       id = 20823
     }
