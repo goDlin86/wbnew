@@ -22,7 +22,7 @@ export const Product = ({ data, market }) => {
 const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
-  let basket = '14'
+  let basket = '15'
   if (vol < 420)
     basket = '03'
   else if (vol < 670)
@@ -45,12 +45,14 @@ const WBProduct = ({ p }) => {
     basket = '12'
   else if (vol < 2042)
     basket = '13'
+  else if (vol < 2190)
+    basket = '14'
 
   return (
     <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank'>
       <img
         className={styles.cardimg}
-        src={`https://basket-${basket}.wb.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
+        src={`https://basket-${basket}.wbbasket.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
         alt={p.name}
       />
 
