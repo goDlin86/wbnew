@@ -34,6 +34,10 @@
 .brd, .oskelly {
   background-color: #1c1c1c;
 }
+.va {
+  color: rgb(34, 34, 34);
+  background-color: #ffffff;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

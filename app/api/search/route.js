@@ -65,6 +65,16 @@ export async function GET(request) {
     }
   }
 
+  if (market === 'va') { //vipavenue
+    url = 'https://catalog.vipavenue.ru/api/products/get-list'
+    body = {
+      "platform_type": "desktop_site",
+      "site_gender_id": 36360,
+      "site_location_id": 36822,
+      //"device_uuid": "3f146f45-563b-4e6f-9aa4-f136149bb43d"
+    }
+  }
+
   const r = market === 'wb' || market === 'brd' ? 
     await fetch(url) :
     await fetch(url, {
@@ -77,6 +87,7 @@ export async function GET(request) {
 
   try {
     const data = await r.json()
+    console.log(data)
     return NextResponse.json(data)
   } catch (e) {
     console.log(e)
