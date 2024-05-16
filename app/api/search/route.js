@@ -68,6 +68,36 @@ export async function GET(request) {
   if (market === 'va') { //vipavenue
     url = 'https://catalog.vipavenue.ru/api/products/get-list'
     body = {
+      "where": {
+          "sections": [],
+          "section_path": "",
+          "genders": [
+              36360,
+              52366
+          ],
+          "brands": [],
+          "colors": [],
+          "sizes": [],
+          "is_new_collection": false,
+          "is_sale": false,
+          "is_new": true,
+          "is_red": false,
+          "selection_id": null,
+          "prevent_dynamic": [],
+          "products_query": null
+      },
+      "relations": [
+          "media_files_small",
+          "offers.size",
+          "offers.available_rests",
+          "brand",
+          "contractor",
+          "season"
+      ],
+      "page": 1,
+      "order_by": "merchandising",
+      "cache_tll": 600,
+      "per_page": 40,
       "platform_type": "desktop_site",
       "site_gender_id": 36360,
       "site_location_id": 36822,
@@ -87,7 +117,6 @@ export async function GET(request) {
 
   try {
     const data = await r.json()
-    console.log(data)
     return NextResponse.json(data)
   } catch (e) {
     console.log(e)
