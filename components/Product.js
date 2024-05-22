@@ -74,7 +74,7 @@ const WBProduct = ({ p }) => {
           // WebkitBackgroundClip: 'text',
           // WebkitTextFillColor: 'transparent' 
         }}>
-          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price.product/100)}
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.sizes[0].price.product/100)}
         </div>
       </div>
     </a>
