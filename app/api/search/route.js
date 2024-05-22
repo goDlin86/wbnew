@@ -7,7 +7,7 @@ export async function GET(request) {
   const brand = q.split('-')[1]
 
   //default wb market
-  let url = 'https://search.wb.ru/exactmatch/ru/male/v5/search?ab_testing=false&appType=1&curr=rub&dest=12358291&filters=xsubject&query=' + brand + '&resultset=filters&spp=30&suppressSpellcheck=false&uclusters=2'
+  let url = 'https://search.wb.ru/exactmatch/ru/male/v5/search?ab_testing=false&appType=1&curr=rub&dest=12358291&filters=xsubject&query=' + brand + '&resultset=catalog&sort=newly&spp=30&suppressSpellcheck=false&uclusters=2'
   let body = {}
 
   if (market === 'brandly') {
