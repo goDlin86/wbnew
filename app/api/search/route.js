@@ -105,7 +105,7 @@ export async function GET(request) {
   }
 
   if (market === 'ls') { //lsboutique
-    url = 'https://api2.lsboutique.ru/apix/v2/catalog/products/?productsType=new_season&sex=1&sort=new&page=1&limit=30&scheme=3&get_offers'
+    url = 'https://api2.lsboutique.ru/apix/v2/catalog/products/?productsType=new_season&sex=1&sort=new&page=1&limit=40&scheme=3&get_offers'
   }
 
   const r = market === 'wb' || market === 'brd' || market === 'ls' ? 
