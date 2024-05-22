@@ -15,8 +15,10 @@ export const Product = ({ data, market }) => {
       return data.data.items.map((p, i) => <OskellyProduct p={p} key={i} />)
 
     case 'va':
-      console.log(data)
       return data.data.map((p, i) => <VAProduct p={p} key={i} />)
+
+    case 'ls':
+      return data.productsData.map((p, i) => <LSProduct p={p} key={i} />)
     
     default:
       return 'Unknown market'
@@ -158,6 +160,29 @@ const VAProduct = ({ p }) => {
         <div>{p.conditionName}</div> */}
         <div className={`${styles.cardprice} ${styles.va} ${styles.cardsize}`}>
           {p.offers.map(s => s.size.name).join(' ')}
+        </div>
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
+        </div>
+      </div>
+    </a>
+  )
+}
+
+const LSProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://lsboutique.ru/products/${p.url}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={p.large_image}
+        alt={p.model}
+      />
+
+      <div className={styles.carddesc}>
+        {/* <div>{p.brand.name + ' ' + p.name}</div>
+        <div>{p.conditionName}</div> */}
+        <div className={`${styles.cardprice} ${styles.va} ${styles.cardsize}`}>
+          {p.sizes.map(s => s.str_size).join(' ')}
         </div>
         <div className={`${styles.cardprice} ${styles.brd}`}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}

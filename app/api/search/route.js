@@ -100,12 +100,15 @@ export async function GET(request) {
       "per_page": 40,
       "platform_type": "desktop_site",
       "site_gender_id": 36360,
-      "site_location_id": 36822,
-      //"device_uuid": "3f146f45-563b-4e6f-9aa4-f136149bb43d"
+      "site_location_id": 36822
     }
   }
 
-  const r = market === 'wb' || market === 'brd' ? 
+  if (market === 'ls') { //lsboutique
+    url = 'https://api2.lsboutique.ru/apix/v2/catalog/products/?productsType=new_season&sex=1&sort=new&page=1&limit=30&scheme=3&get_offers'
+  }
+
+  const r = market === 'wb' || market === 'brd' || market === 'ls' ? 
     await fetch(url) :
     await fetch(url, {
       method: 'POST',
