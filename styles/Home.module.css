@@ -38,6 +38,9 @@
   color: rgb(34, 34, 34);
   background-color: #ffffff;
 }
+.tsum {
+  background-color: #f94f0e;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

@@ -19,6 +19,9 @@ export const Product = ({ data, market }) => {
 
     case 'ls':
       return data.productsData.map((p, i) => <LSProduct p={p} key={i} />)
+
+    case 'tsum':
+      return data.map((p, i) => <TSUMProduct p={p} key={i} />)
     
     default:
       return 'Unknown market'
@@ -186,6 +189,29 @@ const LSProduct = ({ p }) => {
         </div>
         <div className={`${styles.cardprice} ${styles.brd}`}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
+        </div>
+      </div>
+    </a>
+  )
+}
+
+const TSUMProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://www.tsum.ru/product/${p.slug}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={p.photos[0].middle}
+        alt={p.title}
+      />
+
+      <div className={styles.carddesc}>
+        {/* <div>{p.brand.name + ' ' + p.name}</div>
+        <div>{p.conditionName}</div> */}
+        <div className={`${styles.cardprice} ${styles.va} ${styles.cardsize}`}>
+          {p.skuList.map(s => s.size.title).join(' ')}
+        </div>
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.skuList[0].price_discount)}
         </div>
       </div>
     </a>

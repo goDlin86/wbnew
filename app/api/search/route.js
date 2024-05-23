@@ -108,6 +108,13 @@ export async function GET(request) {
     url = 'https://api2.lsboutique.ru/apix/v2/catalog/products/?productsType=new_season&sex=1&sort=new&page=1&limit=40&scheme=3&get_offers'
   }
 
+  if (market === 'tsum') {
+    url = 'https://api.tsum.ru/v3/catalog/search'
+    body = {
+      selection: "new-arrivals-men"
+    }
+  }
+
   const r = market === 'wb' || market === 'brd' || market === 'ls' ? 
     await fetch(url) :
     await fetch(url, {

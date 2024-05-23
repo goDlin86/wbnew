@@ -16,8 +16,9 @@ const tags = [
   'brandly-weekday', 
   'brd-new', 
   'oskelly-choice', 
-  'va-new', 
-  'ls-boutique'
+  'va-vipavenue', 
+  'ls-boutique',
+  'tsum-цум'
 ]
 
 export default function Layout({ children, params }) {
