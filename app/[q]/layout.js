@@ -17,8 +17,9 @@ const tags = [
   'brd-new', 
   'oskelly-choice', 
   'va-vipavenue', 
-  'ls-boutique',
-  'tsum-цум'
+  'ls-lsboutique',
+  'tsum-цум',
+  'un-unicorn'
 ]
 
 export default function Layout({ children, params }) {

@@ -217,3 +217,26 @@ const TSUMProduct = ({ p }) => {
     </a>
   )
 }
+
+const UNICORNProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://unicorngo.ru/product/${p.slug}-${p.spuId}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={p.images[0]}
+        alt={p.name}
+      />
+
+      <div className={styles.carddesc}>
+        {/* <div>{p.brand.name + ' ' + p.name}</div>
+        <div>{p.conditionName}</div> */}
+        {/* <div className={`${styles.cardprice} ${styles.va} ${styles.cardsize}`}>
+          {p.skuList.map(s => s.size.title).join(' ')}
+        </div> */}
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
+        </div>
+      </div>
+    </a>
+  )
+}
