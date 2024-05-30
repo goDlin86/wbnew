@@ -117,7 +117,7 @@ export async function GET(request) {
       break
 
     case 'un': //unicorn
-      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=apparel&page=1&perPage=40' //category: footwear, apparel
+      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear&page=1&perPage=40' //category: footwear, apparel
       break
   }
 
@@ -132,8 +132,7 @@ export async function GET(request) {
     })
 
   try {
-    let data = await r.json()
-    if (market === 'brd') data = data.productsList
+    const data = await r.json()
     return NextResponse.json(data)
   } catch (e) {
     console.log(e)
