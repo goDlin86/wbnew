@@ -22,6 +22,9 @@ export const Product = ({ data, market }) => {
 
     case 'tsum':
       return data.map((p, i) => <TSUMProduct p={p} key={i} />)
+
+    case 'un':
+      return data.items.map((p, i) => <UNICORNProduct p={p} key={i} />)
     
     default:
       return 'Unknown market'
