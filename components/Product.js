@@ -9,7 +9,7 @@ export const Product = ({ data, market }) => {
       return data.result.productsResult.items.map((p, i) => <BrandlyProduct p={p} key={i} />)
 
     case 'brd':
-      return data.productsList.map((p, i) => <BrdProduct p={p} key={i} />)
+      return data.map((p, i) => <BrdProduct p={p} key={i} />)
 
     case 'oskelly':
       return data.data.items.map((p, i) => <OskellyProduct p={p} key={i} />)

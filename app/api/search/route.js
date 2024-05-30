@@ -133,6 +133,7 @@ export async function GET(request) {
 
   try {
     const data = await r.json()
+    if (market === 'brd') data = data.productsList
     return NextResponse.json(data)
   } catch (e) {
     console.log(e)
