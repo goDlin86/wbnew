@@ -121,7 +121,7 @@ export async function GET(request) {
       break
   }
 
-  const r = market === 'wb' || market === 'brd' || market === 'ls' ? 
+  const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' ? 
     await fetch(url) :
     await fetch(url, {
       method: 'POST',
