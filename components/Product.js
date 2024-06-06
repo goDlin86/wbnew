@@ -35,7 +35,7 @@ const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
   let basket = '15'
-  if (vol < 420)
+  if (vol < 425)
     basket = '03'
   else if (vol < 670)
     basket = '04'
@@ -80,7 +80,7 @@ const WBProduct = ({ p }) => {
           // WebkitBackgroundClip: 'text',
           // WebkitTextFillColor: 'transparent' 
         }}>
-          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.sizes[0].price.product/100)}
+          {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.sizes[0].price ? p.sizes[0].price.product/100 : 0)}
         </div>
       </div>
     </a>
