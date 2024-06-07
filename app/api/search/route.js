@@ -128,7 +128,8 @@ export async function GET(request) {
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       },
-      body: JSON.stringify(body)
+      body: JSON.stringify(body),
+      cache: 'no-store'
     })
 
   try {
