@@ -126,7 +126,7 @@ export async function GET(request) {
   }
 
   const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' || market === '12' ? 
-    await fetch(url, { cache: 'no-store' }) :
+    await fetch(url, { headers: {'Content-Type': 'application/json; charset=utf-8'}, cache: 'no-store' }) :
     await fetch(url, {
       method: 'POST',
       headers: {
