@@ -119,9 +119,13 @@ export async function GET(request) {
     case 'un': //unicorn
       url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear&page=1&perPage=40' //category: footwear, apparel
       break
+
+    case '12': //12 storeez
+      url = 'https://12storeez.com/catalog/new/mencollection?limit=10&offset=0&need_total=1'
+      break
   }
 
-  const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' ? 
+  const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' || market === '12' ? 
     await fetch(url, { cache: 'no-store' }) :
     await fetch(url, {
       method: 'POST',

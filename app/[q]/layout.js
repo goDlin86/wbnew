@@ -19,7 +19,8 @@ const tags = [
   'va-vipavenue', 
   'ls-lsboutique',
   'tsum-цум',
-  'un-unicorn'
+  'un-unicorn',
+  '12-storeez'
 ]
 
 export default function Layout({ children, params }) {
