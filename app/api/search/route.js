@@ -121,12 +121,12 @@ export async function GET(request) {
       break
 
     case '12': //12 storeez
-      url = 'https://12storeez.com/catalog/new/mencollection?limit=10&offset=0&need_total=1'
+      url = 'https://12storeez.com/catalog/new/mencollection?limit=20&offset=0'
       break
   }
 
   const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' || market === '12' ? 
-    await fetch(url, { headers: {'Content-Type': 'application/json; charset=utf-8'}, cache: 'no-store' }) :
+    await fetch(url, { cache: 'no-store' }) :
     await fetch(url, {
       method: 'POST',
       headers: {
