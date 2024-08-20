@@ -11,44 +11,6 @@ export async function GET(request) {
   let body = {}
 
   switch (market) { 
-    case 'brandly':
-      url = 'https://api.brandly.ru/api/ext/kt-api-extensions/catalog/product/loadCategoryProducts'
-      //default asos-design
-      let id = 18598
-      if (brand === 'zara') {
-        id = 17976
-      }
-      if (brand === 'topman') {
-        id = 19197
-      }
-      if (brand === 'collusion') {
-        id = 19788
-      }
-      if (brand === 'weekday') {
-        id = 20823
-      }
-      body = {
-        "size": 40,
-        "query": {
-          "pol": "muzhskoy"
-        },
-        "from": 0,
-        "includeFields": null,
-        "excludeFields": null,
-        "sort": [
-          { "availability": "desc" }
-        ],
-        "searchRules": null,
-        "slug": "/brands/" + brand,
-        "productsFor": "catalog",
-        "mainQuery": {
-          "term": {
-            "category_ids": id
-          }
-        }
-      }
-      break
-
     case 'brd':
       url = 'https://www.brd.ru/cat/novaya-kollektsiya?fgender=2&ajax=3'
       break
@@ -122,6 +84,13 @@ export async function GET(request) {
 
     case '12': //12 storeez
       url = 'https://12storeez.com/catalog/new/mencollection?limit=20&offset=0'
+      break
+
+    case 'sv77':
+      url = 'https://ru.sv77.com/api/filters-results-count'
+      body = {
+        path: "/men/new-arrival"
+      }
       break
   }
 
