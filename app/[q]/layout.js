@@ -16,7 +16,7 @@ const tags = [
   'tsum-цум',
   'un-unicorn',
   '12-storeez',
-  'usmall-usmall'
+  'usmall-asos design'
 ]
 
 export default function Layout({ children, params }) {

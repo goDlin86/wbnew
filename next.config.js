@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/usmall-usmall',
+        destination: '/usmall-asos design',
         permanent: true,
       },
     ]

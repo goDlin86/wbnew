@@ -94,7 +94,7 @@ export async function GET(request) {
       break
 
     case 'usmall':
-      url = 'https://usmall.ru/api/google-product-variants?gender_codes[0]=m&gender_codes[1]=ua&gender_codes[2]=u&search=asos+design&sort=-id&user_id=812500707.1720691103&facets_limit=1000&per-page=48'
+      url = 'https://usmall.ru/api/google-product-variants?gender_codes[0]=m&gender_codes[1]=ua&gender_codes[2]=u&search=' + brand.replaceAll('%20', '+') + '&sort=-id&user_id=812500707.1720691103&facets_limit=1000&per-page=48'
       break
   }
 
