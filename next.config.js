@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/',
-        destination: '/tsum-цум',
+        destination: '/usmall-usmall',
         permanent: true,
       },
     ]

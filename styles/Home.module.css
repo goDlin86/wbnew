@@ -41,6 +41,9 @@
 .tsum {
   background-color: #f94f0e;
 }
+.usmall {
+  background-color: #e13b3b;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

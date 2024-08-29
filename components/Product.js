@@ -250,7 +250,7 @@ const StoreezProduct = ({ p }) => {
 
 const USMallProduct = ({ p }) => {
   return (
-    <a className={styles.card} href={p.url} target='_blank'>
+    <a className={styles.card} href={`https://usmall.ru/product/${p.product_id}-${p.origin_name.replace(' ','-')}-${p.brand.name.replace(' ','-')}`} target='_blank'>
       <img
         className={styles.cardimg}
         src={p.images[0].url}
@@ -258,7 +258,7 @@ const USMallProduct = ({ p }) => {
       />
 
       <div className={styles.carddesc}>
-        <div className={`${styles.cardprice} ${styles.brd}`}>
+        <div className={`${styles.cardprice} ${styles.usmall}`}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price_full)}
         </div>
       </div>
