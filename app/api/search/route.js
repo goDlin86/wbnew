@@ -92,9 +92,13 @@ export async function GET(request) {
         path: "/men/new-arrival"
       }
       break
+
+    case 'usmall':
+      url = 'https://usmall.ru/api/google-product-variants?gender_codes[0]=m&gender_codes[1]=ua&gender_codes[2]=u&search=asos+design&sort=-id&user_id=812500707.1720691103&facets_limit=1000&per-page=48'
+      break
   }
 
-  const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' || market === '12' ? 
+  const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
     await fetch(url, { cache: 'no-store' }) :
     await fetch(url, {
       method: 'POST',
