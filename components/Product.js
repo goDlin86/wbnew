@@ -250,7 +250,7 @@ const StoreezProduct = ({ p }) => {
 
 const USMallProduct = ({ p }) => {
   return (
-    <a className={styles.card} href={`https://usmall.ru/product/${p.product_id}-${p.origin_name.replace(' ','-')}-${p.brand.name.replace(' ','-')}`} target='_blank'>
+    <a className={styles.card} href={`https://usmall.ru/product/${p.product_id}-${p.origin_name.replaceAll(' ','-')}-${p.brand.name.replaceAll(' ','-')}`} target='_blank'>
       <img
         className={styles.cardimg}
         src={p.images[0].url}
