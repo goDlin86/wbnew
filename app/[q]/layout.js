@@ -17,7 +17,8 @@ const tags = [
   'un-unicorn',
   '12-storeez',
   'usmall-asos design',
-  'usmall-topman'
+  'usmall-topman',
+  'usmall-zara'
 ]
 
 export default function Layout({ children, params }) {
