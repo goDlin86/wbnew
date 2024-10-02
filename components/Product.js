@@ -69,7 +69,7 @@ const WBProduct = ({ p }) => {
     <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank'>
       <img
         className={styles.cardimg}
-        src={`https://basket-${basket}.wbbasket.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/c516x688/1.jpg`}
+        src={`https://basket-${basket}.wbbasket.ru/vol${vol}/part${id.slice(0,-3)}/${id}/images/big/1.jpg`}
         alt={p.name}
       />
 
