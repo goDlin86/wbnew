@@ -64,7 +64,7 @@ const WBProduct = ({ p }) => {
     basket = '14'
   else if (vol < 2413)
     basket = '15'
-  else if (vol < 2621)
+  else if (vol < 2622)
     basket = '16'
 
   return (
