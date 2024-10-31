@@ -105,6 +105,8 @@ export async function GET(request) {
     })
 
   try {
+    console.log(r.status)
+    console.log(r.type)
     const data = await r.json()
     return NextResponse.json(data)
   } catch (e) {
