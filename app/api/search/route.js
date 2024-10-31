@@ -11,10 +11,6 @@ export async function GET(request) {
   let body = {}
 
   switch (market) { 
-    case 'brd':
-      url = 'https://www.brd.ru/cat/novaya-kollektsiya?fgender=2&ajax=3'
-      break
-
     case 'oskelly':
       url = 'https://oskelly.ru/api/v2/products/filter/items'
       body = {
@@ -79,7 +75,7 @@ export async function GET(request) {
       break
 
     case 'un': //unicorn
-      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear&page=1&perPage=40' //category: footwear, apparel
+      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear%2Fapparel%2Fpants&page=1&perPage=40' //category: footwear, apparel, pants
       break
 
     case '12': //12 storeez
@@ -98,15 +94,14 @@ export async function GET(request) {
       break
   }
 
-  const r = market === 'wb' || market === 'brd' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
-    await fetch(url, { cache: 'no-store' }) :
+  const r = market === 'wb' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
+    await fetch(url) :
     await fetch(url, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8'
       },
-      body: JSON.stringify(body),
-      cache: 'no-store'
+      body: JSON.stringify(body)
     })
 
   try {

@@ -9,7 +9,6 @@ const tags = [
   'wb-pull&bear', 
   'wb-bershka', 
   'wb-твое', 
-  'brd-new', 
   'oskelly-choice', 
   'va-vipavenue', 
   'ls-lsboutique',

@@ -5,9 +5,6 @@ export const Product = ({ data, market }) => {
     case 'wb':
       return data.data.products.map((p, i) => <WBProduct p={p} key={i} />)
   
-    case 'brd':
-      return data.map((p, i) => <BrdProduct p={p} key={i} />)
-
     case 'oskelly':
       return data.data.items.map((p, i) => <OskellyProduct p={p} key={i} />)
 
@@ -88,29 +85,6 @@ const WBProduct = ({ p }) => {
           // WebkitTextFillColor: 'transparent' 
         }}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.sizes[0].price ? p.sizes[0].price.product/100 : 0)}
-        </div>
-      </div>
-    </a>
-  )
-}
-
-const BrdProduct = ({ p }) => {
-  return (
-    <a className={styles.card} href={`https://www.brd.ru/product/${p.uriName}`} target='_blank'>
-      <img
-        className={styles.cardimg}
-        src={p.products_image}
-        alt={p.products_name}
-      />
-
-      <div className={styles.carddesc}>
-        {/* <div>{p.products_name}</div>
-        <div>{p.products_season}</div> */}
-        <div className={`${styles.cardprice} ${styles.brd} ${styles.cardsize}`}>
-          {p.showSizes.map(s => s.text).join(' ')}
-        </div>
-        <div className={`${styles.cardprice} ${styles.brd}`}>
-          {p.current_price_text}
         </div>
       </div>
     </a>
