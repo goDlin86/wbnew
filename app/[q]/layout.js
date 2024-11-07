@@ -20,14 +20,15 @@ const tags = [
   'usmall-zara'
 ]
 
-export default function Layout({ children, params }) {
+export default async function Layout({ children, params }) {
+  const { q } = await params
   return (
     <div className={`${styles.container} ${inter.className}`}>
       <div className={styles.tags}>
         <Search />
         {tags.map((tag, i) => 
           <a 
-            className={`${styles.tag} ${styles[tag.split('-')[0]]} ${tag === decodeURI(params.q) && styles.active}`} 
+            className={`${styles.tag} ${styles[tag.split('-')[0]]} ${tag === decodeURI(q) && styles.active}`} 
             href={'/' + tag} 
             key={i}
           >

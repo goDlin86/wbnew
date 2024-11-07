@@ -74,7 +74,7 @@ export async function GET(request) {
       break
 
     case 'un': //unicorn
-      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear%2Fapparel%2Fpants&page=1&perPage=20' //category: footwear, apparel, pants
+      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear%2Fapparel%2Fpants&page=1&perPage=40' //category: footwear, apparel, pants
       break
 
     case '12': //12 storeez
@@ -104,8 +104,6 @@ export async function GET(request) {
     })
 
   try {
-    console.log(r.status)
-    console.log(r.type)
     const data = await r.json()
     return NextResponse.json(data)
   } catch (e) {
