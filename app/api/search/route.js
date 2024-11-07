@@ -3,8 +3,7 @@ import { NextResponse } from 'next/server'
 export async function GET(request) {
   const { searchParams } = new URL(request.url)
   const q = searchParams.get('q')
-  const market = q.split('-')[0]
-  const brand = q.split('-')[1]
+  const [market, brand] = q.split('-')
 
   //default wb market
   let url = 'https://search.wb.ru/exactmatch/ru/male/v5/search?ab_testing=false&appType=1&curr=rub&dest=12358291&page=1&kind=1&query=' + brand + '&resultset=catalog&sort=newly&spp=30&suppressSpellcheck=false&uclusters=3&uiv=2'
@@ -75,7 +74,7 @@ export async function GET(request) {
       break
 
     case 'un': //unicorn
-      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear%2Fapparel%2Fpants&page=1&perPage=40' //category: footwear, apparel, pants
+      url = 'https://unicorngo.ru/api/catalog/product?sort=by-relevance&fit=MALE&fit=UNISEX&categorySlug=footwear%2Fapparel%2Fpants&page=1&perPage=20' //category: footwear, apparel, pants
       break
 
     case '12': //12 storeez
