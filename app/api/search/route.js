@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import * as cheerio from 'cheerio'
 
 export async function GET(request) {
   const { searchParams } = new URL(request.url)
@@ -95,20 +96,46 @@ export async function GET(request) {
     case 'elyts':
       url = 'https://elyts.ru/catalog/man/new/filter/clear/?ajax_get=Y'
       break
+
+    case 'square':
+      url='https://squarestore.ru/catalog/apparel/'//casual-shoes/'
+      break
   }
 
-  const r = market === 'wb' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
-    await fetch(url) :
-    await fetch(url, {
-      method: 'POST',
+  let r
+
+  if (market === 'square') 
+    r = await fetch(url, {
       headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
-      body: JSON.stringify(body)
+        'Cookie': 'pageSize=30; sort=dateof; nsort=desc;'
+      }
     })
+  else
+    r = market === 'wb' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
+      await fetch(url) :
+      await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(body)
+      })
+
+  let data
 
   try {
-    const data = await r.json()
+    if (market === 'square') {
+      const $ = cheerio.load(await r.text())
+
+      const items = $('.item-card').toArray().map((item) => ({
+        title: $(item).find('.item-card__title').text(),
+        url: $(item).find('.item-card__title').attr('href'),
+        img: $(item).find('.item-product-img>img').attr('src'),
+        price: $(item).find('.item-product-price').text()
+      }))
+      data = {items}
+    } else
+      data = await r.json()
     return NextResponse.json(data)
   } catch (e) {
     console.log(e)

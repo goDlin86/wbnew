@@ -25,6 +25,9 @@ export const Product = ({ data, market }) => {
 
     case 'usmall':
       return data.hits.map((p, i) => <USMallProduct p={p} key={i} />)
+
+    case 'square':
+      return data.items.map((p, i) => <SquareProduct p={p} key={i} />)
     
     default:
       return 'Unknown market'
@@ -244,6 +247,24 @@ const USMallProduct = ({ p }) => {
       <div className={styles.carddesc}>
         <div className={`${styles.cardprice} ${styles.usmall}`}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
+        </div>
+      </div>
+    </a>
+  )
+}
+
+const SquareProduct = ({ p }) => {
+  return (
+    <a className={styles.card} href={`https://squarestore.ru${p.url}`} target='_blank'>
+      <img
+        className={styles.cardimg}
+        src={`https://squarestore.ru${p.img}`}
+        alt={p.title}
+      />
+
+      <div className={styles.carddesc}>
+        <div className={`${styles.cardprice} ${styles.brd}`}>
+          {p.price}
         </div>
       </div>
     </a>

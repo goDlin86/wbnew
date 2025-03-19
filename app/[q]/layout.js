@@ -17,7 +17,8 @@ const tags = [
   '12-storeez',
   'usmall-asos design',
   'usmall-topman',
-  'usmall-zara'
+  'usmall-zara',
+  'square-shoes'
 ]
 
 export default async function Layout({ children, params }) {
@@ -36,7 +37,6 @@ export default async function Layout({ children, params }) {
           </a>
         )}
       </div>
-
       {children}
     </div>
   )
