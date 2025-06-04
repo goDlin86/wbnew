@@ -24,6 +24,7 @@ export const Product = ({ data, market }) => {
       return data.data.items.map((p, i) => <StoreezProduct p={p} key={i} />)
 
     case 'usmall':
+      console.log(data)
       return data.hits.map((p, i) => <USMallProduct p={p} key={i} />)
 
     case 'square':
@@ -243,7 +244,7 @@ const StoreezProduct = ({ p }) => {
 
 const USMallProduct = ({ p }) => {
   return (
-    <a className={styles.card} href={`https://usmall.ru/product/${p.product_id}-${p.origin_name.replaceAll(' ','-').toLowerCase()}-${p.brand.name.replaceAll(' ','-').toLowerCase()}`} target='_blank'>
+    <a className={styles.card} href={`https://usmall.ru/product/${p.product_id}-${p.origin_name.replaceAll(' - ','-').replaceAll(' ','-').toLowerCase()}-${p.brand.name.replaceAll(' - ','-').replaceAll(' ','-').toLowerCase()}`} target='_blank'>
       <img
         className={styles.cardimg}
         src={p.images[0].url}
