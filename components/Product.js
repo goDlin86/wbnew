@@ -24,7 +24,6 @@ export const Product = ({ data, market }) => {
       return data.data.items.map((p, i) => <StoreezProduct p={p} key={i} />)
 
     case 'usmall':
-      console.log(data)
       return data.hits.map((p, i) => <USMallProduct p={p} key={i} />)
 
     case 'square':
@@ -38,7 +37,7 @@ export const Product = ({ data, market }) => {
 const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
-  let basket = '24'
+  let basket = '25'
   if (vol < 425)
     basket = '03'
   else if (vol < 670)
@@ -81,6 +80,8 @@ const WBProduct = ({ p }) => {
     basket = '22'
   else if (vol < 4133)
     basket = '23'
+  else if (vol < 4343)
+    basket = '24'
 
   return (
     <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank'>
