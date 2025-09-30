@@ -37,7 +37,7 @@ export const Product = ({ data, market }) => {
 const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
-  let basket = '27'
+  let basket = '28'
   if (vol < 425)
     basket = '03'
   else if (vol < 670)
@@ -86,6 +86,8 @@ const WBProduct = ({ p }) => {
     basket = '25'
   else if (vol < 4870)
     basket = '26'
+  else if (vol < 5250)
+    basket = '27'
 
   return (
     <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank'>
