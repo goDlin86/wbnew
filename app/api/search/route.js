@@ -7,7 +7,7 @@ export async function GET(request) {
   const [market, brand] = q.split('-')
 
   //default wb market
-  let url = 'https://search.wb.ru/exactmatch/ru/male/v5/search?ab_testing=false&appType=1&curr=rub&dest=12358291&page=1&kind=1&query=' + brand + '&resultset=catalog&sort=newly&spp=30&suppressSpellcheck=false&uclusters=3&uiv=2'
+  let url = 'https://www.wildberries.ru/__internal/search/exactmatch/ru/common/v18/search?ab_testing=false&appType=1&curr=rub&dest=12358291&f204557=15000704&hide_dtype=11&inheritFilters=false&lang=ru&page=1&query='+brand+'&resultset=catalog&sort=newly&spp=30&suppressSpellcheck=false&uclusters=1'
   let body = {}
 
   switch (market) { 
@@ -96,30 +96,19 @@ export async function GET(request) {
     case 'elyts':
       url = 'https://elyts.ru/catalog/man/new/filter/clear/?ajax_get=Y'
       break
-
-    case 'square':
-      url='https://squarestore.ru/catalog/apparel/'//casual-shoes/'
-      break
   }
 
   let r
 
-  if (market === 'square') 
-    r = await fetch(url, {
+  r = market === 'wb' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
+    await fetch(url) :
+    await fetch(url, {
+      method: 'POST',
       headers: {
-        'Cookie': 'pageSize=30; sort=dateof; nsort=desc;'
-      }
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+      body: JSON.stringify(body)
     })
-  else
-    r = market === 'wb' || market === 'ls' || market === 'un' || market === '12' || market === 'usmall' ? 
-      await fetch(url) :
-      await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json; charset=utf-8'
-        },
-        body: JSON.stringify(body)
-      })
 
   let data
 
@@ -136,6 +125,7 @@ export async function GET(request) {
       data = {items}
     } else
       data = await r.json()
+
     return NextResponse.json(data)
   } catch (e) {
     console.log(e)

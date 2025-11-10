@@ -11,8 +11,8 @@
   "dependencies": {
     "cheerio": "^1",
     "eslint": "^9",
-    "eslint-config-next": "^15",
-    "next": "^15",
+    "eslint-config-next": "^16",
+    "next": "^16",
     "react": "^19",
     "react-dom": "^19"
   }

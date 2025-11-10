@@ -17,8 +17,7 @@ const tags = [
   '12-storeez',
   'usmall-asos design',
   'usmall-topman',
-  'usmall-zara',
-  'square-shoes'
+  'usmall-zara'
 ]
 
 export default async function Layout({ children, params }) {

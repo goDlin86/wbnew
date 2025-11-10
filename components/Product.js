@@ -3,7 +3,7 @@ import styles from '@/styles/Home.module.css'
 export const Product = ({ data, market }) => {
   switch (market) {
     case 'wb':
-      return data.data.products.map((p, i) => <WBProduct p={p} key={i} />)
+      return data.products.map((p, i) => <WBProduct p={p} key={i} />)
   
     case 'oskelly':
       return data.data.items.map((p, i) => <OskellyProduct p={p} key={i} />)
@@ -25,9 +25,6 @@ export const Product = ({ data, market }) => {
 
     case 'usmall':
       return data.hits.map((p, i) => <USMallProduct p={p} key={i} />)
-
-    case 'square':
-      return data.items.map((p, i) => <SquareProduct p={p} key={i} />)
     
     default:
       return 'Unknown market'
@@ -37,7 +34,7 @@ export const Product = ({ data, market }) => {
 const WBProduct = ({ p }) => {
   const id = p.id.toString()
   const vol = id.slice(0, -5)
-  let basket = '28'
+  let basket = '30'
   if (vol < 425)
     basket = '03'
   else if (vol < 670)
@@ -88,6 +85,10 @@ const WBProduct = ({ p }) => {
     basket = '26'
   else if (vol < 5250)
     basket = '27'
+  else if (vol < 5500)
+    basket = '28'
+  else if (vol < 5840)
+    basket = '29'
 
   return (
     <a className={styles.card} href={`https://www.wildberries.ru/catalog/${id}/detail.aspx`} target='_blank'>
@@ -261,24 +262,6 @@ const USMallProduct = ({ p }) => {
       <div className={styles.carddesc}>
         <div className={`${styles.cardprice} ${styles.usmall}`}>
           {new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB' }).format(p.price)}
-        </div>
-      </div>
-    </a>
-  )
-}
-
-const SquareProduct = ({ p }) => {
-  return (
-    <a className={styles.card} href={`https://squarestore.ru${p.url}`} target='_blank'>
-      <img
-        className={styles.cardimg}
-        src={`https://squarestore.ru${p.img}`}
-        alt={p.title}
-      />
-
-      <div className={styles.carddesc}>
-        <div className={`${styles.cardprice} ${styles.brd}`}>
-          {p.price}
         </div>
       </div>
     </a>
